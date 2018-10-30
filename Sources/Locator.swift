@@ -141,6 +141,13 @@ public class LocatorManager: NSObject, CLLocationManagerDelegate {
 	
 	/// `true` if service is currenlty monitoring significant location changes
 	public private(set) var isMonitoringSignificantLocationChanges = false
+    
+    public var distance:CLLocationDistance = 5 {
+        
+        didSet{
+            self.manager.distanceFilter = distance
+        }
+    }
 	
 	/// It is possible to force enable background location fetch even if your set any kind of Authorizations
 	public var backgroundLocationUpdates: Bool {
